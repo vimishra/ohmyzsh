@@ -84,6 +84,16 @@ alias lta="exa --sort Name --long --tree --all --classify"
 alias ls="exa --sort Name --classify"
 alias lrt="exa --long -snew"
 
+# Zsh benchmark
+timezsh() {
+  shell=${1-$SHELL}
+  for i in $(seq 1 10); do /usr/bin/time $shell -i -c exit; done
+}
+
+profzsh() {
+  shell=${1-$SHELL}
+  ZPROF=true $shell -i -c exit
+}
 
 # Local Variables:
 # mode:shell-script
